@@ -1,0 +1,85 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="stylesheets/sir-trevor.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+  <style>
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      padding: 3em;
+      background-color: #fff;
+      margin: 0 auto;
+      max-width: 960px;
+    }
+    .form {
+      margin: 0 auto;
+      max-width: 960px;
+    }
+
+    .st-block--textable:nth-child(3) {
+      position: relative;
+    }
+
+    .st-block--textable:nth-child(3).st-block--empty:not(.st-block--controls-active):before {
+      opacity: 1;
+    }
+
+    .st-block--textable:nth-child(3):before {
+      color: #ccc;
+      content: "Start typing ...";
+      display: inline;
+      font-size: 1.275em;
+      left: 110px;
+      line-height: 55px;
+      position: absolute;
+      top: 0;
+      opacity: 0;
+    }
+
+    .st-block__messages--is-visible {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+  <form action="" class="form">
+    <div class="errors"></div>
+    <textarea class="sir-trevor" name="content"></textarea>
+    <input type="submit" value="Submit" style="display: none;">
+  </form>
+
+  <pre id="st-json-debug"></pre>
+
+  <script src="javascripts/sir-trevor.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    (function(){
+      SirTrevor.config.language = "en";
+      SirTrevor.setDefaults({
+        iconUrl: 'images/sir-trevor-icons.svg'
+      });
+
+      window.editor = new SirTrevor.Editor({
+        el: document.querySelector('.sir-trevor'),
+        blockTypes: [
+          "Heading",
+          "Text",
+          "List",
+          "Quote",
+          "Image",
+          "Video"
+        ],
+        defaultType: "Text"
+      });
+    })();
+  </script>
+</body>
+</html>
